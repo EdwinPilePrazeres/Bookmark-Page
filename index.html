@@ -272,8 +272,8 @@
           <h2>Stay up-to-date with what we’re doing</h2>
         </div>
 
-        <form>
-          <input type="email" placeholder="example@email.com" name="emails" id="emails">
+        <form name="myForm" onsubmit="return validateForm()" required>
+          <input type="email" placeholder="example@email.com" name="email" id="email">
           <input type="submit" value="Contact US">
         </form>
       
@@ -374,26 +374,28 @@
         z = 0;
       }
       
-    })
+    });
+
+    function validateForm(email) {
+      var x = document.forms["myForm"]["email"].value;
+      var mailformat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+
+      if (x == "") {
+        alert("Email must be filled out");
+        return false;
+      } 
+      else if (email.value.match(mailformat)) {
+        alert("Valid Email address!");
+        return true;
+      }
+      else {
+        alert ("You have entered an invalid email address!");
+        return false;
+      }
+    }
  
   </script>
-  <!-- <script>
-    var menu_mobile = document.querySelector(".menu_mobile");
-    var button = document.querySelector(".button_menu");
-    let i = 0;
-    button.addEventListener("click",function() {
 
-      if (menu_mobile.style.display = "none" && i === 0) {
-        menu_mobile.style.display = "block";
-        i++;
-      }
-      else if (i !== 0) {
-        menu_mobile.style.display = "none";
-        i = 0;
-      }
-      
-    })
-  </script> -->
 </body>
 </html>
 
