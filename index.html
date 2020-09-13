@@ -16,7 +16,30 @@
 
     <header>
 
-      <div class="menu">
+      <div class="header_mobile">
+
+        <div class="logo">
+          <img src="images/logo-bookmark.svg">
+        </div>
+  
+        <div class="button_menu">
+          <input type="image" src="images/icon-hamburger.svg">
+        </div>
+  
+      </div>
+      <div class="menu_mobile">
+        <div class="menu">
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Careers</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="menu menu_desktop">
 
         <img src="images/logo-bookmark.svg" alt="">
 
@@ -306,8 +329,10 @@
     var answers = document.querySelectorAll('.answers');
     var lista = document.querySelectorAll('.lista')
     var bloque = document.querySelectorAll('.bloque');
-
+    var menu_mobile = document.querySelector(".menu_mobile");
+    var button = document.querySelector(".button_menu");
     var slideIndex = 1;
+
     showSlides(slideIndex);
 
     function currentSlide(n) {
@@ -335,10 +360,40 @@
       questions[i].addEventListener("click", function(){
         answers[i].classList.toggle('desactive');
       })
-    }
+    };
 
+    let z = 0;
+    button.addEventListener("click",function() {
+
+      if (menu_mobile.style.display = "none" && z === 0) {
+        menu_mobile.style.display = "block";
+        z++;
+      }
+      else if (z !== 0) {
+        menu_mobile.style.display = "none";
+        z = 0;
+      }
+      
+    })
  
   </script>
+  <!-- <script>
+    var menu_mobile = document.querySelector(".menu_mobile");
+    var button = document.querySelector(".button_menu");
+    let i = 0;
+    button.addEventListener("click",function() {
+
+      if (menu_mobile.style.display = "none" && i === 0) {
+        menu_mobile.style.display = "block";
+        i++;
+      }
+      else if (i !== 0) {
+        menu_mobile.style.display = "none";
+        i = 0;
+      }
+      
+    })
+  </script> -->
 </body>
 </html>
 
